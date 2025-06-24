@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS test_management;
+USE test_management;
+
+CREATE TABLE IF NOT EXISTS tests (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  price FLOAT NOT NULL,
+  details TEXT
+);

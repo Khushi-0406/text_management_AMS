@@ -5,8 +5,8 @@ a basic Flask + MySql backend to manage test records.
 
 --technics used
 python
-MySql (DB)
-rest API
+MySql (DB) Xampp server
+rest API -postman
 
 --project files
 app.py
@@ -15,7 +15,7 @@ requirement.txt
 readme.md
 
 -- project setup
-schema.sql --> install MySql workbench, run this on workbench
+schema.sql --> install xampp server, run this on sql tab
 python.app --> install vscode, import flask, run this file on vscode
 
 --API Endpoints

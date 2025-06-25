@@ -4,12 +4,15 @@ import mysql.connector
 app = Flask(__name__)
 
 db = mysql.connector.connect(
-    host="127.0.0.1",
+    host="localhost",
     user="root",
-    password="khushi09",  
+    password="",  
     database="test_management"
 )
 cur = db.cursor(dictionary=True)
+
+if db.is_connected():
+    print("✅ Connected to MySQL (XAMPP)")
 
 @app.route('/add-test', methods=['POST'])
 def add():

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Management</title>
+</head>
+<body>
+  <h2>Simple Test Management</h2>
+
+  <input id="id" placeholder="ID for edit/delete"><br>
+  <input id="name" placeholder="Test Name"><br>
+  <input id="price" placeholder="Price"><br>
+  <input id="details" placeholder="Details"><br><br>
+
+  <button onclick="addTest()">Add Test</button>
+  <button onclick="editTest()">Edit Test</button>
+  <button onclick="deleteTest()">Delete Test</button>
+  <button onclick="getTests()">Show All Tests</button>
+
+  <div id="result"></div>
+
+  <script>
+    const url = "http://127.0.0.1:5000";
+
+    function val(id) {
+      return document.getElementById(id).value;
+    }
+
+    function addTest() {
+      fetch(url + "/add-test", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: val("name"),
+          price: val("price"),
+          details: val("details")
+        })
+      }).then(r => r.json()).then(d => alert(d.msg));
+    }
+
+    function editTest() {
+      fetch(url + "/edit-test/" + val("id"), {
+        method: "PUT",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: val("name"),
+          price: val("price"),
+          details: val("details")
+        })
+      }).then(r => r.json()).then(d => alert(d.msg));
+    }
+
+    function deleteTest() {
+      fetch(url + "/delete-test/" + val("id"), {
+        method: "DELETE"
+      }).then(r => r.json()).then(d => alert(d.msg));
+    }
+
+    function getTests() {
+      fetch(url + "/get-tests")
+        .then(r => r.json())
+        .then(data => {
+          let html = "<h3>All Tests</h3>";
+          data.forEach(t => {
+            html += `ID: ${t.id}, Name: ${t.name}, ₹${t.price}<br>Details: ${t.details}<hr>`;
+          });
+          document.getElementById("result").innerHTML = html;
+        });
+    }
+  </script>
+</body>
+</html>
+

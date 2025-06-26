@@ -1,22 +1,31 @@
-Test Management System
+Simple Test Management System
 
 --objective
-a basic Flask + MySql backend to manage test records.
+this is basic project using Flask(Python) + MySql(via XAmpp) backend and HTML frontemd to manage test records.
 
---technics used
-python
+--Features
+add a test,
+edit a test(by id),
+delete a test(by id),
+View all tests in the list.
+
+--techniques used
+python 3
 MySql (DB) Xampp server
+flask, flask_cors, my-sql-connector-python
 rest API -postman
 
 --project files
-app.py
-schema.sql
+app.py -> flask backend
+schema.sql -> sql to create databse tables
+index.html -> frontend
 requirement.txt
-readme.md
+readme.md ->instructions
 
 -- project setup
-schema.sql --> install xampp server, run this on sql tab
-python.app --> install vscode, import flask, run this file on vscode
+schema.sql --> install xampp server,go to phpmyadmine, run 'schema.sql' on sql tab
+app.py --> install vscode, import flask,falsk_cors,my-sql-connector, run 'app.py' file on vscode
+index.html --> open index.html in your browser(double click).
 
 --API Endpoints
 POST --> /add-test
